@@ -26,6 +26,10 @@
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
+function first(arr, cb){
+  cb(arr[0])
+}
+
 
 // Code Here 
 
@@ -48,7 +52,9 @@ first(names, function(firstName){
 */
 
 //Code Here
-
+function last(arr, cb){
+   cb(arr[arr.length - 1])
+}
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -64,7 +70,9 @@ last(names, function(lastName){
   Write a function called multiply that takes in three parameters: two numbers and a callback function.  
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
-
+function multiply(num1, num2, cb){
+  cb(num1 * num2)
+}
 //Code Here
 
 // Do not edit the code below.
@@ -83,7 +91,13 @@ multiply(4, 3, function(answer){
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
-
+function contains(arr, name, cb){
+  for(i=0;i < arr.length;i++)
+  if(arr[i] == name){
+    cb(true)
+  }
+  cb(false)
+}
 //Code Here 
 
 // Do not edit the code below.
@@ -106,6 +120,15 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr, cb){
+  let uniqArr = []
+  for(i = 0; i < arr.length; i++){
+    if(!uniqArr.includes(arr[i])){
+      uniqArr.push(arr[i])
+    }
+  }
+  cb(uniqArr)
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,6 +146,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+function each(arr, cb) {
+  for(i = 0; i < arr.length; i++){
+    cb(arr[i], i)
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){

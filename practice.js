@@ -168,6 +168,14 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(arr, id, cb){
+  for(i = 0; i < arr.length; i++){
+    if(arr[i].id == id){
+      cb(arr[i])
+    }
+  }
+}
+
 
 // Do not edit the code below.
 var users = [
